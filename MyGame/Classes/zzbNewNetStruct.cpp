@@ -2,7 +2,7 @@
 //  zzbNewNetStruct.cpp
 //  GAME2
 //
-//  Created by zzb on 14-1-13.
+//   Created by spf on 14-7-21
 //
 //
 
@@ -13,43 +13,7 @@
 
 NETNEWEVENTNAMEINF g_newEventNameInf[NET_NEW_EVENT_NR] =
 {
-    {NET_EVENT_DRAWCARD,"c=Card&m=takeOutCards","HoodleServer/apiServlet","错误代码001"},//获得抽卡数据如掉落的英雄id和概率
-    {NET_EVENT_LOGIN,"login=1","HoodleServer/login","错误代码002"},
-    {NET_EVENT_TEAMLIST,"c=Card&m=updateTeamList","HoodleServer/apiServlet","错误代码003"},
-    {NET_EVENT_UPDATE_CARD_INFO,"c=Card&m=updateCardInfo","HoodleServer/apiServlet","错误代码004"},
-    {NET_EVENT_APPLY_ADDFRIEND,"c=Friend&m=applyAddFriend","HoodleServer/apiServlet","错误代码005"},
-    {NET_EVENT_AGREE_ADDFRIEND,"c=Friend&m=agreeAddFriend","HoodleServer/apiServlet","错误代码006"},
-    {NET_EVENT_GET_RECOMMEN_LIST,"c=Friend&m=getRecommendList","HoodleServer/apiServlet","错误代码007"},
-    {NET_EVENT_UPDATE_USER_NAME,"c=GameUser&m=updateUserName","HoodleServer/apiServlet","错误代码008"},{NET_EVENT_UPDATE_USER_STAMINA,"c=GameUser&m=updateUserStamina","HoodleServer/apiServlet","错误代码009"},
-    {NET_EVENT_BOUND_USERID_TO_OTHERID,"c=GameUser&m=boundUserIdToOtherId","HoodleServer/apiServlet","错误代码010"},
-    {NET_EVENT_GET_PROPSHOP_LIST,"c=Shop&m=getBuyPropsList","HoodleServer/apiServlet","错误代码011"},
-    {NET_EVENT_BATTLE_BEFORE,"c=Battle&m=battleBefore","HoodleServer/apiServlet","错误代码012"},
-    {NET_EVENT_BATTLE_AFTER,"c=Battle&m=battleAfter","HoodleServer/apiServlet","错误代码013"},
-    {NET_EVENT_BATTLE_WORLD_BOSS,"c=Battle&m=battleWorldBoss","HoodleServer/apiServlet","错误代码014"},
-    {NET_EVENT_GET_RANK_WORLD_BOSS,"c=Battle&m=getRankWorldBoss","HoodleServer/apiServlet","错误代码015"},
-    {NET_EVENT_SAVE_TAKE_OUT_CARD,"c=Card&m=saveTakeOutCard","HoodleServer/apiServlet","错误代码016"},
-    {NET_EVENT_GET_ITEM_BY_TYPE,"c=Item&m=getItemByType","HoodleServer/apiServlet","错误代码017"},
-    {NET_EVENT_SAVE_ITEM,"c=Item&m=saveItem","HoodleServer/apiServlet","错误代码018"},
-    {NET_EVENT_GET_ITEM_BAG_NUM,"c=Item&m=getItemBagNum","HoodleServer/apiServlet","错误代码019"},
-    {NET_EVENT_REFRESH_FORMLATION,"c=Card&m=refreshFormlation","HoodleServer/apiServlet","错误代码020"},
-    {NET_EVENT_GET_FRIEND_LIST,"c=Friend&m=getFriendList","HoodleServer/apiServlet","错误代码021"},
-    {NET_EVENT_GET_FRIEND_APPLY_LIST,"c=Friend&m=getFriendApplyList","HoodleServer/apiServlet","错误代码022"},
-    {NET_EVENT_GET_FRIEND_MSG,"c=Friend&m=getFriendMsg","HoodleServer/apiServlet","错误代码023"},
- 
-    {NET_EVENT_SEARCH_FRIEND_ID,"c=Friend&m=searchFriendId","HoodleServer/apiServlet","错误代码024"},
-    {NET_EVENT_REFUSE_ADDFRIEND,"c=Friend&m=refuseAddFriend","HoodleServer/apiServlet","错误代码025"},
-    {NET_EVENT_DELETE_FRIEND,"c=Friend&m=deleteFriend","HoodleServer/apiServlet","错误代码026"},
-    {NET_EVENT_SEND_MESSAGE,"c=Friend&m=sendMsgToFriend","HoodleServer/apiServlet","错误代码027"},
-    {NET_EVENT_SEND_WORLD_MSG,"c=Friend&m=sendWorldMsg","HoodleServer/apiServlet","错误代码028"},
-    {NET_EVENT_REFRESH_WORLD_MSG,"c=Friend&m=refreshWorldMsg","HoodleServer/apiServlet","错误代码029"},
-    {NET_EVENT_EVOLUTION_CARD, "c=Card&m=cardEvolution", "HoodleServer/apiServlet", "卡牌进化错误30"},
-    {NET_EVENT_UPGRADE_CARD, "c=Card&m=cardUpgrade", "HoodleServer/apiServlet", "卡牌升级错误31"},
-    {NET_EVENT_SKILL_UPGRADE, "c=Skill&m=skillUpLevel", "HoodleServer/apiServlet", "技能升级错误32"},
-     {NET_EVENT_BUYPROPS,"c=Shop&m=buyBuyProps","HoodleServer/apiServlet", "购买道具错误33"},
-    {NET_EVENT_UPDATE_FRIEND_MSG_STATE,"c=Friend&m=updateMsgStatus","HoodleServer/apiServlet","错误代码034"},
-    {NET_EVENT_BATTLE_REVIVE,"c=Battle&m=battleRevive","HoodleServer/apiServlet","错误代码035"},
-    {NET_EVENT_GET_REGISTRATION,"c=DailyTask&m=getSignDailyInfo","HoodleServer/apiServlet","错误代码036"},
-    {NET_EVENT_SAVE_REGISTRATION,"c=DailyTask&m=saveSignDaily","HoodleServer/apiServlet","错误代码036"}
+    {NET_EVENT_DRAWCARD,"c=Card&m=takeOutCards","HoodleServer/ass"}
 };
 
 const char* getNewEventNameByEventType(int eventType)
@@ -105,23 +69,7 @@ std::string _netNewSendEventBase::generateSendStr()
 	//sendstr += contentstr;
 	return sendstr;
 }
-/******************************************************************
- //funcName:truncateCommandHeaderStr
- 
- //date:2013/3/14 15:42
- 
- //desc:接收到的信息的头的抓取
- 
- //param:
- commanstr[in/out]:命令串;返回的是去掉头以及?之后的字符串
- "createUser?userid:.."
- 返回"userid..."
- 
- //ret value:
- 事件名称,createUser
- 
- //author:butcher
- ******************************************************************/
+******************************************************************/
 std::string _netNewRecvEventBase::truncateCommandHeaderStr(
                                                            std::string commandstr)
 {
@@ -185,13 +133,62 @@ void _netNewRecvEventBase::parseAllParams(const std::string&str)
             if (pos==-1) {
                 break;
             }
-//            pos = Maxvalue.find('#');
+            //            pos = Maxvalue.find('#');
         }
         m_paramsStr.insert(std::make_pair(Maxkey, tMapStr));
         pos = tempstr.find('&');
         tempstr = tempstr.substr(pos+1,-1);
     } while (pos!=-1);
-
+    
+    
+    
+    //    log("%s",value.c_str());
+    //	if(seperatorpos == -1)
+    //    {
+    //        //如果没有&,就是一条整的命令
+    //        //m_paramsStr.push_back(tempstr)
+    //        pos = tempstr.find("=");
+    //        key = tempstr.substr(0, pos);
+    //
+    //		m_paramsStr.insert(std::make_pair(key, value));
+    //	}
+    //    else
+    //    {
+    //		//第一个是不是&,是就直接跳过
+    //		if(seperatorpos == 0)
+    //        {
+    //			tempstr = tempstr.substr(1,-1);
+    //		}
+    //		while(tempstr.length() > 0)
+    //        {
+    //			int seperatorpos = tempstr.find('#');
+    //			if(seperatorpos == -1)
+    //            {
+    //                //如果没有&,就是一条整的命令
+    //				//m_paramsStr.push_back(tempstr);
+    //                pos = tempstr.find("=");
+    //                key = tempstr.substr(0, pos);
+    //                value = tempstr.substr(pos + 1);
+    //                m_paramsStr.insert(std::make_pair(key, value));
+    //				break;
+    //			}
+    //			std::string oneInstructionstr = tempstr.substr(0,seperatorpos);
+    //			if(oneInstructionstr.length() > 0)
+    //            {
+    //				//m_paramsStr.push_back(oneInstructionstr);
+    //                pos = oneInstructionstr.find("=");
+    //                key = oneInstructionstr.substr(0, pos);
+    //                value = oneInstructionstr.substr(pos + 1);
+    //                m_paramsStr.insert(std::make_pair(key, value));
+    //			}
+    //			if(seperatorpos >= (int)(tempstr.length()) - 1)
+    //            {
+    //				break;
+    //			}
+    //			tempstr = tempstr.substr(seperatorpos + 1,-1);
+    //		}
+    //	}
+	
 }
 /******************************************************************
  //funcName:parseNumberAfterEqualFromInstruction
@@ -215,8 +212,8 @@ int _netNewRecvEventBase::parseNumberAfterEqualFromInstruction(const std::string
     {
         return 0;
     }
-//	if(str.length() > 0)
-//		return atoi(str.c_str());
+    //	if(str.length() > 0)
+    //		return atoi(str.c_str());
 	return atoi(str->second.c_str());
 }
 float _netNewRecvEventBase::parseFloatAfterEqualFromInstruction(const std::string& Maxkey,const std::string& key)
@@ -245,4 +242,28 @@ std::string _netNewRecvEventBase::parseStrAfterEqualFromInstruction(const std::s
 {
     std::string str = m_paramsStr.find(Maxkey)->second.find(key)->second;
 	return str;
-};
+}
+/******************************************************************
+ //funcName:parseHasEqualInstructionKeyname
+ 
+ //date:2013/10/21
+ 
+ //desc:获取一个含有=指令的key
+ 比如 userid=1234
+ 返回"userid"
+ 
+ //param:
+ 
+ //ret value:
+ 
+ //author:zzb
+ ******************************************************************/
+ std::string _netNewRecvEventBase::parseHasEqualInstructionKeyname(const std::string& key)
+ {
+ /*int pos = str.find('=');
+ CCAssert(pos != -1,"");
+ if(pos == -1)
+ 
+ return str.substr(0,pos);*/
+     return 0;
+ }

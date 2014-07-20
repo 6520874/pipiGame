@@ -2,7 +2,7 @@
 //  zzbLayerNetCommunication.h
 //  GAME2
 //
-//  Created by zzb on 13-10-16.
+//  Created by spf on 14-7-21
 //
 //  其实就是一个框    要在当出现网络错误的时候要在touchup里只要点击了就删除框
 

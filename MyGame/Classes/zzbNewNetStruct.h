@@ -2,7 +2,7 @@
 //  zzbNewNetStruct.h
 //  GAME2
 //
-//  Created by zzb on 14-1-13.
+//   Created by spf on 14-7-21
 //
 //
 
@@ -120,7 +120,7 @@ struct _netNewRecvEventBase : public _netNewEventStructBase
 	std::string parseStrAfterEqualFromInstruction(const std::string& Maxkey,const std::string& key);
 	int parseNumberAfterEqualFromInstruction(const std::string& Maxkey,const std::string& key);
 	float parseFloatAfterEqualFromInstruction(const std::string& Maxkey,const std::string& key);
-	//std::string parseHasEqualInstructionKeyname(const std::string& key);
+	std::string parseHasEqualInstructionKeyname(const std::string& key);
     
 	void parseAllParams(const std::string&str);
    // std::map<std::string, std::string> m_paramsStr;
@@ -178,6 +178,7 @@ struct _netNewRecvEventDrawCard : public _netNewRecvEventBase
     {
         if (!_netNewRecvEventBase::init()) {
             return false;
+        }
              return true;
     }
     std::string cardInfo;

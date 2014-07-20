@@ -2,7 +2,7 @@
 //  zzbLayerNetCommunication.cpp
 //  GAME2
 //
-//  Created by zzb on 13-10-16.
+//  Created by spf on 14-7-21
 //
 //
 

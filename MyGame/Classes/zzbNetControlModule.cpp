@@ -247,7 +247,8 @@ void CNetControlModule::AddHttpPackage(cocos2d::Object* pTarget,cocos2d::SEL_Cal
 void CNetControlModule::getEventDrawCard(cocos2d::Object*pTarget,cocos2d::SEL_CallFuncO phandler)
 {
     
-    _netNewSendEventBase event;
+    _netNewSendEventDrawCard event;
+    string sz = event.generateContentStr();
     event.m_eventType = NET_EVENT_DRAWCARD;
     AddHttpPackage(pTarget,phandler,event);
 }
