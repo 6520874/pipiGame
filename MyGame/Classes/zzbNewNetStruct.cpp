@@ -69,7 +69,7 @@ std::string _netNewSendEventBase::generateSendStr()
 	//sendstr += contentstr;
 	return sendstr;
 }
-******************************************************************/
+
 std::string _netNewRecvEventBase::truncateCommandHeaderStr(
                                                            std::string commandstr)
 {
