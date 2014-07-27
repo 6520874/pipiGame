@@ -1,4 +1,6 @@
 #include "HelloWorldScene.h"
+#include "zzbLayerNetCommunication.h"
+#include "zzbNetControlModule.h"
 
 USING_NS_CC;
 
@@ -18,6 +20,13 @@ Scene* HelloWorld::createScene()
 }
 
 // on "init" you need to initialize your instance
+
+void   HelloWorld::_GetDrawCard(Object *pSender)
+{
+    
+
+}
+
 bool HelloWorld::init()
 {
     //////////////////////////////
@@ -28,6 +37,7 @@ bool HelloWorld::init()
     }
    
     
+    CNetControlModule::sharedNetControlModule()->getEventDrawCard(this,callfuncO_selector(HelloWorld::_GetDrawCard));
     
     return true;
 }

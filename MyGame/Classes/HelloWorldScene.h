@@ -15,6 +15,8 @@ public:
     // a selector callback
     void menuCloseCallback(Object* pSender);
     
+    
+    void   _GetDrawCard(Object *pSender);
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 };

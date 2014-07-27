@@ -8,12 +8,12 @@
 
 #include "zzbNewNetStruct.h"
 
-#define URL_ADDRESS "http://112.12.59.147:9090/"
+#define URL_ADDRESS "http://121.199.10.53/war3/"
 
-
+//HoodleServer/ass
 NETNEWEVENTNAMEINF g_newEventNameInf[NET_NEW_EVENT_NR] =
 {
-    {NET_EVENT_DRAWCARD,"c=Card&m=takeOutCards","HoodleServer/ass"}
+    {NET_EVENT_DRAWCARD,"c=Card&m=takeOutCards"," "}
 };
 
 const char* getNewEventNameByEventType(int eventType)
@@ -40,7 +40,7 @@ const char* getNewEventHeadStr(int eventType)
 
 _netNewRecvEventBase* _netNewRecvEventBase::create(const int& nEventType,const std::string&receiveCommand)
 {
-	_netNewRecvEventBase* pRecvEvent;
+	_netNewRecvEventBase* pRecvEvent = new _netNewRecvEventBase();
     std::string leftcommandstr = truncateCommandHeaderStr(receiveCommand);
 	switch(nEventType)
     {
@@ -59,14 +59,14 @@ std::string _netNewSendEventBase::generateSendStr()
 {
 	std::string sendstr = URL_ADDRESS;
     sendstr += getNewEventHeadStr(m_eventType);
-    sendstr += "?";
+    /*sendstr += "?";
 	sendstr += getNewEventNameByEventType(m_eventType);
 	sendstr += "&";
 	std::string contentstr = generateContentStr();
    // std::string strHttp = CDBMgr::getInstance()->HttpEncrypt(contentstr);
     //__String *str = __String::createWithFormat("%s&cph=%s",contentstr.c_str(),strHttp.c_str());
     //contentstr = str->getCString();
-	//sendstr += contentstr;
+	//sendstr += contentstr;*/
 	return sendstr;
 }
 
